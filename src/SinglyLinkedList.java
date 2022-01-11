@@ -4,11 +4,11 @@ public class SinglyLinkedList {
     private Node tail;
     private int size;
 
-    public void add(int value){
-        if (head == null){
+    public void add(int value) {
+        if (head == null) {
             head = new Node(value, null);
             tail = head;
-        }else{
+        } else {
             tail.next = new Node(value, null);
             tail = tail.next;
 //            Node temp = head;
@@ -20,11 +20,13 @@ public class SinglyLinkedList {
         size++;
     }
 
-    public void add(int index, int value){}
+    public void add(int index, int value) {
+    }
 
-    public void remove(int index){}
+    public void remove(int index) {
+    }
 
-    public int get(int index){
+    public int get(int index) {
         if (index < 0 || index >= size) throw new ArrayIndexOutOfBoundsException("Invalid index");
 
         Node temp = head;
@@ -35,29 +37,40 @@ public class SinglyLinkedList {
         return temp.value;
     }
 
-    public void clear(){}
+    public void clear() {
+    }
 
-    public boolean contains(int value){return true;}
+    public boolean contains(int value) {
+        return true;
+    }
 
-    public boolean empty(){return true;}
+    public boolean empty() {
+        return true;
+    }
 
-    public int size(){return size;}
+    public int size() {
+        return size;
+    }
 
-    public void print(){
+    public void print() {
         StringBuilder sb = new StringBuilder("[");
         Node temp = head;
 
-        while (temp != null){
+        while (temp != null) {
             sb.append(temp.value);
             sb.append(",");
             temp = temp.next;
         }
 
-        sb.replace(sb.length()-1, sb.length(), "]");
-        System.out.println(sb.toString());
+        if (size > 1) {
+            sb.replace(sb.length() - 1, sb.length(), "]");
+        } else {
+            sb.append("]");
+        }
+        System.out.println(sb);
     }
 
-    class Node{
+    class Node {
         private int value;
         private Node next;
 
