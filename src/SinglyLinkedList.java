@@ -38,14 +38,23 @@ public class SinglyLinkedList {
     }
 
     public void clear() {
+        head = null;
+        tail = head;
+        size = 0;
     }
 
     public boolean contains(int value) {
-        return true;
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.value == value) return true;
+            temp = temp.next;
+        }
+        return false;
     }
 
     public boolean empty() {
-        return true;
+        return size == 0;
     }
 
     public int size() {
