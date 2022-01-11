@@ -21,9 +21,26 @@ public class SinglyLinkedList {
     }
 
     public void add(int index, int value) {
+        // Todo: need to implement
     }
 
     public void remove(int index) {
+        if (index < 0 || index >= size) throw new ArrayIndexOutOfBoundsException("Invalid index");
+
+        if (index == 0) {
+            head = head.next;
+        } else {
+            Node temp = head;
+            for (int i = 0; i < index - 1; i++) {
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+
+            if (index == (size - 1)) {
+                tail = temp;
+            }
+        }
+        size--;
     }
 
     public int get(int index) {
